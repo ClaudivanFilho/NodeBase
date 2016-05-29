@@ -12,7 +12,7 @@ module.exports = function(app){
           break;
         case 'production':
           // TODO have to be seted
-          mongoose.connect('mongodb://heroku_bnl381w2:nodebase1@ds061385.mlab.com:61385/heroku_bnl381w2', opts);
+          mongoose.connect('mongodb://vanfilho:nodebase1@ds061385.mlab.com:61385/heroku_bnl381w2', opts);
           break;
         default:
           throw new Error('Unknown execution environment: ' + app.get('env'));
