@@ -15,7 +15,8 @@ passport.use(new FacebookStrategy({
         console.log("not user")
         var usuario = new User({
           id : profile.id,
-          name : profile.name
+          displayName : profile.displayName,
+          provider : profile.provider
         });
         usuario.save(function() {
           console.log("save user")
