@@ -7,6 +7,6 @@
   function BaseCtrl(User) {
     var ba = this;
 
-    ba.user = User.data;
+    ba.user = User;
   }
 })()
