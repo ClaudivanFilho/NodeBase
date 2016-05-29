@@ -6,7 +6,7 @@ passport.use(new FacebookStrategy({
     clientID: "290046521330776",
     clientSecret: "d324100182cb0c1bc4d41595e45d5f02",
     callbackURL: "http://nodebase.herokuapp.com/auth/facebook/callback",
-    profileFields: ['username', 'gender', 'picture', 'photos']
+    profileFields: ['username', 'gender', 'photos']
   },
   function(accessToken, refreshToken, profile, done) {
     console.log(profile);
