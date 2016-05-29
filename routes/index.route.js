@@ -2,7 +2,7 @@ var express = require('express');
 var path = require('path');
 var router = express.Router();
 var passport = require('passport');
-//var Book = require('../models/book.model.js');
+var User = require('../models/user.model.js');
 //var Populate = require('../models/populate.js');
 
 router.get('/', function(req, res, next) {
@@ -18,6 +18,8 @@ router.get('/user', function(req, res, next) {
 });
 
 router.get('/backdoor', function(req, res, next) {
+  User.remove({}, function() {
+  });
   return res.send("Database Reseted");
 });
 
