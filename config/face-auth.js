@@ -8,9 +8,20 @@ passport.use(new FacebookStrategy({
     callbackURL: "http://nodebase.herokuapp.com/auth/facebook/callback"
   },
   function(accessToken, refreshToken, profile, done) {
-    User.findOrCreate(profile, function(err, user) {
+    console.log(profile);
+    User.findOne({id : profile.id}, function(err, user) {
       if (err) { return done(err); }
-      done(null, user);
+      if (!user) {
+        var usuario = new User({
+          id : profile.id,
+          name : profile.name
+        })
+        usuario.save(function() {
+          done(null, usuario);  
+        })
+      } else {
+        done(null, user);
+      }
     });
   }
 ));
