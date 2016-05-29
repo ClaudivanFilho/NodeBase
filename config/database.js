@@ -1,23 +1,22 @@
 var mongoose = require('mongoose');
+var opts = {
+  server: { socketOptions: { keepAlive: 1 } }
+};
 
 module.exports = function(app){
-  var db = {
-    opts : {
-      server: { socketOptions: { keepAlive: 1 } }
-    },
+  return {
     connect : function() {
       switch(app.get('env')){
         case 'development':
-        mongoose.connect('mongodb://localhost/mydb', this.opts);
-        break;
+          mongoose.connect('mongodb://localhost/mydb', opts);
+          break;
         case 'production':
-        // TODO have to be seted
-        //mongoose.connect('mongodb://heroku_fzbtzrg6:31ntgrhf3ffq0e7s9dj36jtcnh@ds053164.mlab.com:53164/heroku_fzbtzrg6', this.opts);
-        break;
+          // TODO have to be seted
+          mongoose.connect('mongodb://heroku_bnl381w2:nodebase1@ds061385.mlab.com:61385/heroku_bnl381w2', opts);
+          break;
         default:
-        throw new Error('Unknown execution environment: ' + app.get('env'));
+          throw new Error('Unknown execution environment: ' + app.get('env'));
       }
     }
   }
-  return db;
 };

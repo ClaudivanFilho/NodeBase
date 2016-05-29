@@ -1,21 +1,21 @@
-var index = require('./routes/index');
-var book = require('./routes/book');
-var comment = require('./routes/comment');
+var index = require('./routes/index.route.js');
+var local = require('./routes/local-auth.route.js');
+var face = require('./routes/face-auth.route.js');
 
 module.exports = function(app) {
 
     /**
-     * Rotas de documentação, home e backdoor
+     * Initial routes
      */
     app.use('/', index);
     /**
-     * Api book
+     * local authentication
      */
-    app.use('/api/book', book);
+    app.use('/', local);
     /**
-     * Api comment
+     * Facebook authentication
      */
-    app.use('/api/comment', comment);
+    app.use('/', face);
 
     return app;
 }
