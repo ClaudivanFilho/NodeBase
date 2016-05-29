@@ -13,6 +13,10 @@ router.get('/home', function(req, res, next) {
   return res.sendFile(path.join(__dirname+'/../public/index.html'));
 });
 
+router.get('/user', function(req, res, next) {
+  res.json(req.user);
+});
+
 router.get('/backdoor', function(req, res, next) {
   return res.send("Database Reseted");
 });
