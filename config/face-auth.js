@@ -12,11 +12,13 @@ passport.use(new FacebookStrategy({
     User.findOne({id : profile.id}, function(err, user) {
       if (err) { return done(err); }
       if (!user) {
+        console.log("not user")
         var usuario = new User({
           id : profile.id,
           name : profile.name
         });
         usuario.save(function() {
+          console.log("save user")
           done(null, usuario);
         });
       } else {
