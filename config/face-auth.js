@@ -15,10 +15,10 @@ passport.use(new FacebookStrategy({
         var usuario = new User({
           id : profile.id,
           name : profile.name
-        })
+        });
         usuario.save(function() {
-          done(null, usuario);  
-        })
+          done(null, usuario);
+        });
       } else {
         done(null, user);
       }
