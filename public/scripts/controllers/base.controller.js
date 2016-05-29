@@ -1,5 +1,5 @@
 (function() {
-  angular.module('MyApp', ['ngMaterial'])
+  angular.module('MyApp', [])
   .controller('BaseCtrl', BaseCtrl);
 
   BaseCtrl.$inject = ['User'];
