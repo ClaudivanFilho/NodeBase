@@ -2,11 +2,11 @@
   angular.module('MyApp', ['ngMaterial'])
   .controller('BaseCtrl', BaseCtrl);
 
-  BaseCtrl.$inject = [];
+  BaseCtrl.$inject = ['User'];
 
-  function BaseCtrl() {
+  function BaseCtrl(User) {
     var ba = this;
 
+    ba.user = User.data;
   }
-  
 })()
