@@ -10,18 +10,17 @@ passport.use(new FacebookStrategy({
   },
   function(accessToken, refreshToken, profile, done) {
     console.log(profile);
-    console.log(profile.displayName);
     User.findOne({id : profile.id}, function(err, user) {
       if (err) { return done(err); }
       if (!user) {
-        console.log("not user")
         var usuario = new User({
           id : profile.id,
           displayName : profile.displayName,
-          provider : profile.provider
+          provider : profile.provider,
+          gender : profile.gender,
+          photos : profile.photos
         });
         usuario.save(function() {
-          console.log("save user")
           done(null, usuario);
         });
       } else {
