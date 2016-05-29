@@ -21,7 +21,7 @@ router.post('/auth/login', function(req, res, next) {
   })(req, res, next);
 });
 
-router.post('/auth/logout', function(req, res) {
+router.get('/auth/logout', function(req, res) {
   req.logout();
   res.redirect('/auth/login');
   req.session.notice = "You have successfully been logged out!";
