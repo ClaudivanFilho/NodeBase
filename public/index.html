@@ -41,10 +41,12 @@
     <div class="page-header">
       <h1>My App</h1>
     </div>
-    <div class="col-sm-6  input-group" style="margin-bottom:10px;">
-      <span class="input-group-addon" ng-click="ba.send()" style="cursor:pointer;">Send</span>
-      <input ng-model="ba.message" type="text" class="form-control" placeholder="">
-    </div>
+    <form ng-submit="ba.send()">
+      <div class="col-sm-3  input-group" style="margin-bottom:10px;">
+        <span><small>key enter to send</small></span>
+        <input ng-model="ba.message" type="text" class="form-control" placeholder="Message">
+      </div>
+    </form>
     <div class="col-sm-12 well well-sm">
       <ul id="messages" class="list-group">
         <li class="list-group-item" ng-repeat="m in ba.messages">
