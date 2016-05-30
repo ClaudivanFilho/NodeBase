@@ -16,7 +16,6 @@ var userSchema = new Schema({
       value : String
     }
   ]
-
 });
 
 var User = mongoose.model('User', userSchema);

@@ -9,8 +9,11 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 
   <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+  <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
+  <script src="scripts/socket.min.js"></script>
   <script src="scripts/controllers/base.controller.js"></script>
   <script src="scripts/services/user.service.js"></script>
+  <script src="scripts/services/socket.service.js"></script>
 </head>
 <body ng-controller="BaseCtrl as ba">
   <nav class="navbar navbar-default" role="navigation">
@@ -18,8 +21,6 @@
       <div class="navbar-header">
         <a class="navbar-brand" href="#"></a>
       </div>
-
-      <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="navbar">
         <ul class="nav navbar-nav">
           <li class="active"><a href="#">Home</a></li>
@@ -30,7 +31,6 @@
             <a>You're logged how {{ba.user.data.displayName}} using the {{ba.user.data.provider}}</a>
           </li>
         </ul>
-
         <ul class="nav navbar-nav navbar-right">
           <li><a href="/auth/logout">Log out</a></li>
         </ul>
@@ -39,7 +39,18 @@
   </nav>
   <div class="container">
     <div class="page-header">
-      <h1>My App <small></small></h1>
+      <h1>My App</h1>
+    </div>
+    <div class="col-sm-6  input-group" style="margin-bottom:10px;">
+      <span class="input-group-addon" ng-click="ba.send()" style="cursor:pointer;">Send</span>
+      <input ng-model="ba.message" type="text" class="form-control" placeholder="">
+    </div>
+    <div class="col-sm-12 well well-sm">
+      <ul id="messages" class="list-group">
+        <li class="list-group-item" ng-repeat="m in ba.messages">
+          <strong>{{m.name}}</strong> diz: {{m.msg}}
+        </li>
+      </ul>
     </div>
   </div>
 </body>
