@@ -11,9 +11,6 @@
     service.data = [];
 
     service.get = get;
-    service.create = create;
-    service.edit = edit;
-    service.remove = remove;
 
     service.get();
     return service;
@@ -28,36 +25,6 @@
         console.log(data);
       });
     }
-
-    function create(data) {
-      $http.post('/user', data)
-      .success(function(response) {
-        alert(response);
-      })
-      .error(function(data) {
-        console.log(data);
-      });
-    }
-
-    function edit(data) {
-      $http.put('/user', data)
-      .success(function(response) {
-        alert("Editado");
-      })
-      .error(function(data) {
-        console.log(data);
-      });
-    }
-
-    function remove() {
-      $http.delete('/user', data)
-      .success(function(response) {
-        condirm(response);
-        window.location.href = "/";
-      })
-      .error(function(data) {
-        console.log(data);
-      });
-    }
+    
   }
 })()

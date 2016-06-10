@@ -1,8 +1,8 @@
 {
-  "name": "Node.js Getting Started",
-  "description": "A barebones Node.js app using Express 4",
+  "name": "Node.js With Heroku Scaffolding",
+  "description": "A barebones Node.js app using Express 4 and hosted in the Heroku",
   "repository": "https://github.com/heroku/node-js-getting-started",
   "logo": "http://node-js-sample.herokuapp.com/node.svg",
-  "keywords": ["node", "express", "static"],
+  "keywords": ["node", "express", "static", "heroku"],
   "image": "heroku/nodejs"
 }
